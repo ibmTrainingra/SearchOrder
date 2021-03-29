@@ -11,15 +11,19 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class OrderSearchController {
 	@Autowired
-	OrderService orderService;// DI
-
-	@GetMapping("/order/{id}")
-	Optional<Order> getOrder(@PathVariable("id") String orderId) {
-		return orderService.getOrder(orderId);
-	}
-
+	OrderService orderService;
 	@GetMapping("/order")
 	List<Order> getOrders() {
 		return orderService.getOrders();
 	}
+/**
+ * method to search for an order
+ * @param orderId
+ * @return zero or matching order
+ */
+	@GetMapping("/order/{id}")
+	Optional<Order> getOrdeById(@PathVariable("id") String orderId) {
+		return orderService.getOrderById(orderId);
+	}
+
 }

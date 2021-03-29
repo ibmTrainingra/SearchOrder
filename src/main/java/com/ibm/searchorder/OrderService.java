@@ -11,12 +11,11 @@ public class OrderService {
 	@Autowired
 	OrderRepository orderRepository;
 
-	public Optional<Order> getOrder(String orderId) {
-
-		return orderRepository.findById(orderId);
-	}
 
 	public List<Order> getOrders() {
 		return orderRepository.findAll();
+	}
+	public Optional<Order> getOrderById(String orderId) {
+		return orderRepository.findById(orderId);
 	}
 }
